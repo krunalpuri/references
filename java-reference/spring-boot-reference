@@ -1,0 +1,15 @@
+# Spring boot framework
+
+## Logging
+There are several options to logging in spring boot frameworks.
+The default logging when using spring-boot-starter dependency is Logback
+Reference [1], a good primer for different logging frameworks and
+their properties.  
+The most elegant way to add logging to the application is using Lombok's
+annotation
+
+
+
+# Reference
+
+1) https://www.baeldung.com/spring-boot-logging
