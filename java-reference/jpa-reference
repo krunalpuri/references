@@ -1,0 +1,34 @@
+JPA relationships:
+
+## Bidirectional OneToMany:
+
+To create a Bidirectional relation between parent and child class, JPA provides a set annotation to define relationship between these two entities.
+
+The child class which will be owning side of the relationship will use the Mapping attribute to define a physicall mapping. The name define in @JoinColumn("<column_name>") will be used to create a column in the child table to store the reference_id to the parent row.
+
+The Parent class, which will be annotated by @OneToMany, can define a list to store child objects by using mappedBy Attribute to create a reference to the associated mapping attribute on the owning side. 
+
+For ex:
+Parentclass {  
+  @OneToMany(mappedBy="parentObjInChildClass")
+  List<Child> children;
+}
+
+ChildClass{
+  @JoinColumn("parent_id")
+  private Parent parentObjInChildClass;
+}
+
+
+## ID Generator: 
+ 
+Auto, Identifier, Sequence, Table  
+(Table can cause a row-locking issue and poor scalability performance)  
+- Use Identifier to have table level unique ID generator
+- Use Sequence to have Database level unique ID generator
+
+
+# Reference
+1) https://www.baeldung.com/jpa-joincolumn-vs-mappedby
+2) https://vladmihalcea.com/why-you-should-never-use-the-table-identifier-generator-with-jpa-and-hibernate/ 
+
